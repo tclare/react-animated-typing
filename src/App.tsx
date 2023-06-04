@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { FunctionComponent } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export interface AnimatedTyperProps {
+  text: string[];
+  loopForever?: boolean;
+  spelloutDuration?: number;
+  blinkDuration?: number;
+  textStyles?: AnimatedTyperStyle;
+  cursorLineStyles?: AnimatedTyperStyle;
+  cursorBoxStyles?: AnimatedTyperStyle;
 }
 
-export default App;
+export type StyleIndexFunction = (i: number) => React.CSSProperties;
+export type AnimatedTyperStyle = React.CSSProperties | StyleIndexFunction;
+
+const defaultTextStyles: React.CSSProperties = {
+  color: "black",
+  fontFamily: "Georgia",
+  fontWeight: "bold",
+  fontSize: 48
+};
+
+const defaultCursorLineStyles: React.CSSProperties = {
+
+};
+
+const defaultCursorBoxStyles: React.CSSProperties = {
+
+}
+
+export const AnimatedTyper: FunctionComponent<AnimatedTyperProps> = (props) => {
+
+  return (
+    <div className="animated-typer-container" style={defaultTextStyles}>
+      {props.text}
+    </div>
+  );
+};
+
+export {};
