@@ -1,11 +1,15 @@
-import React, { FunctionComponent } from 'react';
-
+import React, { FunctionComponent, createContext, useState } from 'react';
+import { AnimatedTyperText } from './components/AnimatedTyperText';
+import { AnimatedTyperCursor } from './components/AnimatedTyperCursor';
+import "./App.css";
 export interface AnimatedTyperProps {
   text: string[];
+  contributors?: string[];
   loopForever?: boolean;
   spelloutDuration?: number;
+  waitingDuration?: number;
   blinkDuration?: number;
-  textStyles?: AnimatedTyperStyle;
+  textStyles?: React.CSSProperties;
   cursorLineStyles?: AnimatedTyperStyle;
   cursorBoxStyles?: AnimatedTyperStyle;
 }
@@ -28,12 +32,39 @@ const defaultCursorBoxStyles: React.CSSProperties = {
 
 }
 
+const isSpellingDefaults = {
+  isSpelling: true,
+  setIsSpelling: (s: boolean) => {}
+};
+
+const spelloutIndexDefaults = {
+  spelloutIndex: 0,
+  setSpelloutIndex: (n: number) => {}
+}
+
+const defaultContextState = {
+  isSpellingState: isSpellingDefaults,
+  spelloutIndexState: spelloutIndexDefaults
+};
+
+export const TypingContext = createContext(defaultContextState);
+
 export const AnimatedTyper: FunctionComponent<AnimatedTyperProps> = (props) => {
 
+  const [spelloutIndex, setSpelloutIndex] = useState(0);
+  const [isSpelling, setIsSpelling ] = useState(true);
+  const contextValue = {
+    isSpellingState: { isSpelling, setIsSpelling },
+    spelloutIndexState: { spelloutIndex, setSpelloutIndex }
+  }
+
   return (
-    <div className="animated-typer-container" style={defaultTextStyles}>
-      {props.text}
-    </div>
+    <TypingContext.Provider value={contextValue}>
+      <div className="animated-typer__container" style={defaultTextStyles}>
+        <AnimatedTyperText {...props }/>
+        <AnimatedTyperCursor {...props}/>
+      </div>
+    </TypingContext.Provider>
   );
 };
 
