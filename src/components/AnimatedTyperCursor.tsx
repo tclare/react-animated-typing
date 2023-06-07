@@ -36,7 +36,7 @@ export const AnimatedTyperCursor: FunctionComponent<AnimatedTyperProps> = (props
                 "animated-typer__cursor-box",
                 { "animated-typer__cursor-box--invisible": !isSpelling && !showCursor }
             )}>
-                <div>{contributors[contributorIndex]}</div>
+                <span>{contributors[contributorIndex]}</span>
             </div>
         </div>
     )

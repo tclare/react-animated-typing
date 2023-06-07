@@ -17,7 +17,7 @@ root.render(
     <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center", height: "100vh"}}>
       <AnimatedTyper 
         text={["Hello World!", "Foo Bar Baz"]}
-        contributors={["Samantha", "Jonathan"]}
+        contributors={["Samantha Jones", "Jonathan"]}
         cursorBoxStyles={(i => styles[i])}
         cursorLineStyles={(i => styles[i])}
       />
