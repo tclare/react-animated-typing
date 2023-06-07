@@ -16,6 +16,10 @@ export const AnimatedTyperText: FunctionComponent<AnimatedTyperProps> = (props) 
     const phraseIndex = spelloutIndex % numPhrases;
     const wordLength = props.text[phraseIndex].length;
 
+    const textStyles = (typeof props.textStyles === "function") 
+        ? props.textStyles(phraseIndex)
+        : props.textStyles;
+
     useEffect(() => {
 
         if (isSpelling) {
@@ -23,7 +27,6 @@ export const AnimatedTyperText: FunctionComponent<AnimatedTyperProps> = (props) 
                 if (goingForward) {
                     setCharacterIndex(characterIndex+1); 
                     if (characterIndex >= wordLength) {
-                        console.log("detected character index bigger than word length")
                         setIsSpelling(false);
                         setGoingForward(false);
                     }
@@ -45,6 +48,6 @@ export const AnimatedTyperText: FunctionComponent<AnimatedTyperProps> = (props) 
     });
 
     return (
-        <span style={props.textStyles}>{props.text[phraseIndex].slice(0, characterIndex + 1)}</span>
+        <span style={textStyles}>{props.text[phraseIndex].slice(0, characterIndex + 1)}</span>
     )
 }

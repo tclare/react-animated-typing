@@ -9,7 +9,7 @@ export interface AnimatedTyperProps {
   spelloutDuration?: number;
   waitingDuration?: number;
   blinkDuration?: number;
-  textStyles?: React.CSSProperties;
+  textStyles?: AnimatedTyperStyle;
   cursorLineStyles?: AnimatedTyperStyle;
   cursorBoxStyles?: AnimatedTyperStyle;
 }

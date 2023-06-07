@@ -7,9 +7,14 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
-const styles = [
+const cursorStyles: React.CSSProperties[] = [
   { backgroundColor: "green"},
   { backgroundColor: "orange"}
+];
+
+const textStyles: React.CSSProperties[] = [
+  { fontFamily: "Times New Roman"},
+  { fontFamily: "Georgia"}
 ];
 
 root.render(
@@ -18,8 +23,9 @@ root.render(
       <AnimatedTyper 
         text={["Hello World!", "Foo Bar Baz"]}
         contributors={["Samantha", "Jonathan"]}
-        cursorBoxStyles={(i => styles[i])}
-        cursorLineStyles={(i => styles[i])}
+        cursorBoxStyles={(i => cursorStyles[i])}
+        cursorLineStyles={(i => cursorStyles[i])}
+        textStyles={i => textStyles[i]}
       />
     </div>
   </React.StrictMode>
