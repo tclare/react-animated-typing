@@ -22,19 +22,10 @@ export const AnimatedTyperText: FunctionComponent<AnimatedTyperProps> = (props) 
 
         if (isSpelling) {
             setTimeout(() => {
-                if (goingForward) {
-                    setCharacterIndex(characterIndex+1); 
-                    if (characterIndex >= wordLength) {
-                        setIsSpelling(false);
-                        setGoingForward(false);
-                    }
-                } else {
-                    setCharacterIndex(characterIndex - 1);
-                    if (characterIndex <= 0) {
-                        setGoingForward(true);
-                        setSpelloutIndex(spelloutIndex + 1);
-                    }
-                }
+                setCharacterIndex(goingForward ? characterIndex + 1 : characterIndex - 1);
+                setGoingForward(!goingForward && characterIndex <= 0 ? true : goingForward && characterIndex >= wordLength ? false : goingForward);
+                setSpelloutIndex(!goingForward && characterIndex <= 0 ? spelloutIndex + 1 : spelloutIndex);
+                setIsSpelling(goingForward && characterIndex >= wordLength ? false : isSpelling);
             }, spelloutDuration / wordLength) 
         } 
 
@@ -47,5 +38,5 @@ export const AnimatedTyperText: FunctionComponent<AnimatedTyperProps> = (props) 
 
     return (
         <span style={textStyles}>{props.text[phraseIndex].slice(0, characterIndex + 1)}</span>
-    )
+    );
 }
