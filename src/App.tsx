@@ -14,7 +14,7 @@ export interface AnimatedTyperProps {
   cursorBoxStyles?: AnimatedTyperStyle;
 }
 
-export type StyleIndexFunction = (i: number) => React.CSSProperties;
+export type StyleIndexFunction = (i: number) => React.CSSProperties | undefined;
 export type AnimatedTyperStyle = React.CSSProperties | StyleIndexFunction;
 
 const defaultTextStyles: React.CSSProperties = {

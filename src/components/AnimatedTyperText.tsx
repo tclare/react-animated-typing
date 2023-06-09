@@ -1,5 +1,6 @@
 import { FunctionComponent, useEffect, useState, useContext } from "react"
 import { AnimatedTyperProps, TypingContext } from "../App"
+import { parseAnimatedTyperStyleProp } from "../utils";
 
 export const AnimatedTyperText: FunctionComponent<AnimatedTyperProps> = (props) => {
 
@@ -15,10 +16,7 @@ export const AnimatedTyperText: FunctionComponent<AnimatedTyperProps> = (props) 
     const numPhrases = props.text.length;
     const phraseIndex = spelloutIndex % numPhrases;
     const wordLength = props.text[phraseIndex].length;
-
-    const textStyles = (typeof props.textStyles === "function") 
-        ? props.textStyles(phraseIndex)
-        : props.textStyles;
+    const textStyles = parseAnimatedTyperStyleProp(phraseIndex, props.textStyles);
 
     useEffect(() => {
 
