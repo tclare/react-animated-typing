@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.background-image-overlay {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('../public/office-meeting.jpeg');
+  background-size: cover;
+}
+
+.surrounding-div {
+  color: white;
+  font-family: "Georgia";
+  font-weight: bold;
+  font-size: 48px;
+  z-index: 5;
+}

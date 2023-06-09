@@ -1,46 +1,46 @@
-# Getting Started with Create React App
+# Welcome to Animated Typer!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![demo gif]()
 
-## Available Scripts
+## Installation
 
-In the project directory, you can run:
+`npm install react-animated-typer`
 
-### `npm start`
+## Background
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+React Animated Typer is a highly customizable yet super simple, one-component
+library, used to create the notion of one or more users typing text on a shared doc, like you would see on Google Docs. It works very well on a React website's landing page, to create the effect of one multiple "users" co-editing one or more
+applications a product has to offer.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Usage
 
-### `npm test`
+To use, simply invoke the `AnimatedTyperText` component inside a 
+React application. This component accepts the following props:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+| Prop      | Type | Description | Required | Default
+| ----------- | ----------- | ----- | -------- | --------
+| text      | `string[]`       | An array of messages to be typed out | yes | n/a
+| contributors   | `string[]`  | An array of "users" who type out the messages in text | no | `["John", "Mary"]`
+| loopForever | `boolean` | If true, once the last message in `text` is typed out, this component will return to the start. Otherwise, nothing more will be typed out. | no | `true`
+| spelloutDuration | `number` | Time (in milliseconds) to spell out (and also backspace through) each phrase in `text`. | no | `1000`
+| waitingDuration | `number` | Time (in milliseconds) to wait, from when a phrase was finished being spelled out, to when it will start being erased. | no | `2000`
+| blinkDuration | `number` | Time (in milliseconds) to wait between cursor blinks. | no | `500`
+| textStyles | `AnimatedTyperStyle`* | Custom styles to apply to the messages being typed out. | no | `{}`
+| cursorLineStyles | `AnimatedTyperStyle`* | Custom styles to apply to the vertical line portion of the cursor. | no | `{}`
+| cursorBoxStyles | `AnimatedTyperStyle`* | Custom styles to apply to the horizontal box portion of the cursor, usually containing the name of the current "editing user." | no | `{}`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+*`AnimatedTyperStyle`: `React.CSSProperties` | `React.CSSProperties[]` | `function`. <br>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+When used as a simple object of `CSSProperties`, these styles are applied directly to the affected element. When an array of `CSSProperties` is passed, styles are applied in looping order to the affected element. Finally, when a function of type (i: number) => React.CSSProperties is passed, it will be executed at the index of the current `text` phrase, or `cursor` contributor.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Contributing
 
-### `npm run eject`
+Contributions are more than welcome! If you notice a bug or see a feature
+you want implemented, feel free to open an issue or raise a PR and
+write a solution yourself. 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## License
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+This repository uses the MIT License and is fine to use for both personal
+and commercial applications.

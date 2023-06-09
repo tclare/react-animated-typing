@@ -2,7 +2,7 @@
 /* eslint-disable testing-library/no-container */
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { AnimatedTyper } from './App';
+import { AnimatedTyper } from '../App';
 
 test('calling top level animated typer component renders text and cursor', () => {
   const { container } = render(<AnimatedTyper text={["Hello World", "Foo Bar Baz"]}/>);

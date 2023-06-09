@@ -10,12 +10,13 @@ export const AnimatedTyperCursor: FunctionComponent<AnimatedTyperProps> = (props
     } = useContext(TypingContext);
     
     const [showCursor, setShowCursor] = useState(true);
+    const blinkDuration = props.blinkDuration ?? 500;
 
     useEffect(() => {
         setTimeout(() => {
             setShowCursor(isSpelling || !showCursor);
-        }, 500);
-    }, [isSpelling, showCursor]);
+        }, blinkDuration);
+    }, [isSpelling, showCursor, blinkDuration]);
 
     const contributors = props.contributors ?? [];
     const contributorIndex = contributors ? spelloutIndex % contributors.length : 0;

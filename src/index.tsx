@@ -9,24 +9,32 @@ const root = ReactDOM.createRoot(
 
 const cursorStyles: React.CSSProperties[] = [
   { backgroundColor: "green"},
-  { backgroundColor: "orange"}
+  { backgroundColor: "orange"},
+  { backgroundColor: "dodgerblue"},
+  { backgroundColor: "purple"}
 ];
 
-const textStyles: React.CSSProperties[] = [
-  { fontFamily: "Times New Roman"},
-  { fontFamily: "Georgia"}
-];
 
 root.render(
   <React.StrictMode>
-    <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center", height: "100vh"}}>
-      <AnimatedTyper 
-        text={["Hello World!", "Foo Bar Baz"]}
-        contributors={["Samantha", "Jonathan"]}
-        cursorBoxStyles={(i => cursorStyles[i])}
-        cursorLineStyles={(i => cursorStyles[i])}
-        textStyles={i => textStyles[i]}
-      />
+    <div className="background-image-overlay"></div>
+    <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", height: "100vh", margin: "0 10%", rowGap: 10 }}>
+      <div className="surrounding-div">
+        <div className="demo-div">
+          <span className="surrounding-div-text">Create </span>
+          <AnimatedTyper 
+            text={["product", "design", "development", "customer service"]}
+            contributors={["Tony", "Rachel", "Jesse", "Dillon"]}
+            cursorBoxStyles={(i => cursorStyles[i])}
+            cursorLineStyles={(i => cursorStyles[i])}
+            textStyles={{ color: 'white', fontFamily: "Georgia"}}
+          />
+          <span className="surrounding-div-text">experiences</span>
+        </div>
+      </div>
+      <span style={{ color: "white", zIndex: 5, fontSize: 24, fontFamily: "sans-serif", fontWeight: "lighter" }}> 
+        that are sure to delight and amaze your users.
+      </span>
     </div>
   </React.StrictMode>
 );
