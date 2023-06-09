@@ -14,7 +14,7 @@ applications a product has to offer.
 
 ## 🧑‍💻 Usage
 
-To use, simply invoke the `AnimatedTyperText` component inside a 
+To use, simply invoke the `AnimatedTyper` component inside a 
 React application. This component accepts the following props:
 
 
