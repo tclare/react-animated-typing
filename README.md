@@ -1,18 +1,18 @@
-# Welcome to Animated Typer!
+## 🎉 Welcome to Animated Typer!
 
-![demo gif]()
+![demo gif](https://github.com/tclare/react-animated-typing/blob/main/public/demo.gif)
 
-## Installation
+## 🔨 Installation
 
 `npm install react-animated-typer`
 
-## Background
+## 📋 Background
 
 React Animated Typer is a highly customizable yet super simple, one-component
 library, used to create the notion of one or more users typing text on a shared doc, like you would see on Google Docs. It works very well on a React website's landing page, to create the effect of one multiple "users" co-editing one or more
 applications a product has to offer.
 
-## Usage
+## 🧑‍💻 Usage
 
 To use, simply invoke the `AnimatedTyperText` component inside a 
 React application. This component accepts the following props:
@@ -34,13 +34,13 @@ React application. This component accepts the following props:
 
 When used as a simple object of `CSSProperties`, these styles are applied directly to the affected element. When an array of `CSSProperties` is passed, styles are applied in looping order to the affected element. Finally, when a function of type (i: number) => React.CSSProperties is passed, it will be executed at the index of the current `text` phrase, or `cursor` contributor.
 
-## Contributing
+## 🤝 Contributing
 
 Contributions are more than welcome! If you notice a bug or see a feature
 you want implemented, feel free to open an issue or raise a PR and
 write a solution yourself. 
 
-## License
+## 📜 License
 
 This repository uses the MIT License and is fine to use for both personal
 and commercial applications.
