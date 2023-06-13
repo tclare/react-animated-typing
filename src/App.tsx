@@ -24,14 +24,6 @@ const defaultTextStyles: React.CSSProperties = {
   fontSize: 48
 };
 
-const defaultCursorLineStyles: React.CSSProperties = {
-
-};
-
-const defaultCursorBoxStyles: React.CSSProperties = {
-
-}
-
 const isSpellingDefaults = {
   isSpelling: true,
   setIsSpelling: (s: boolean) => {}
