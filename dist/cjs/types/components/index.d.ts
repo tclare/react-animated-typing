@@ -1,0 +1,1 @@
+export { AnimatedTyper } from "./AnimatedTyper";

@@ -1,7 +1,8 @@
 import React, { FunctionComponent, createContext, useState } from 'react';
-import { AnimatedTyperText } from './components/AnimatedTyperText';
-import { AnimatedTyperCursor } from './components/AnimatedTyperCursor';
-import "./App.css";
+import { AnimatedTyperText } from '../AnimatedTyperText';
+import { AnimatedTyperCursor } from '../AnimatedTyperCursor';
+import { TypingContext } from '../../context';
+
 export interface AnimatedTyperProps {
   text: string[];
   contributors?: string[];
@@ -23,23 +24,6 @@ const defaultTextStyles: React.CSSProperties = {
   fontWeight: "bold",
   fontSize: 48
 };
-
-const isSpellingDefaults = {
-  isSpelling: true,
-  setIsSpelling: (s: boolean) => {}
-};
-
-const spelloutIndexDefaults = {
-  spelloutIndex: 0,
-  setSpelloutIndex: (n: number) => {}
-}
-
-const defaultContextState = {
-  isSpellingState: isSpellingDefaults,
-  spelloutIndexState: spelloutIndexDefaults
-};
-
-export const TypingContext = createContext(defaultContextState);
 
 export const AnimatedTyper: FunctionComponent<AnimatedTyperProps> = (props) => {
 

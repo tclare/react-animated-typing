@@ -1,5 +1,6 @@
 import { FunctionComponent, useContext, useEffect, useState } from "react";
-import { AnimatedTyperProps, TypingContext } from "../App";
+import { AnimatedTyperProps } from "../AnimatedTyper";
+import { TypingContext } from "../../context"; 
 import "./AnimatedTyperCursor.css";
 import classNames from "classnames";
 
