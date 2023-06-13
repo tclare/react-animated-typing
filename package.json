@@ -1,7 +1,9 @@
 {
-  "name": "react-animated-typing",
+  "name": "@tclare/react-animated-typing",
   "version": "0.0.1",
-  "private": true,
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/tclare"
+  },
   "dependencies": {
     "classnames": "^2.3.2"
   },

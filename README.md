@@ -4,7 +4,7 @@
 
 ## 🔨 Installation
 
-`npm install react-animated-typer`
+`npm install @tclare/react-animated-typer`
 
 ## 📋 Background
 
