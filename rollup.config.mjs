@@ -6,6 +6,7 @@ import css from "rollup-plugin-import-css";
 import packageJson from "./package.json" assert { type: "json"};
 export default [
   {
+    external: ["react", "react-dom"],
     input: "src/index.ts",
     output: [
       {
