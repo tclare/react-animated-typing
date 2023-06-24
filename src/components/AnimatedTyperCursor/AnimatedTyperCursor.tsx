@@ -29,8 +29,8 @@ export const AnimatedTyperCursor: FunctionComponent<AnimatedTyperProps> = (props
 
     const contributors = props.contributors ?? ["Tony", "Rachel", "Jesse", "Dillon"];
     const contributorIndex = contributors.length ? spelloutIndex % contributors.length : 0;
-    const cursorBlockStyles = parseAnimatedTyperStyleProp(contributorIndex, props.cursorBoxStyles) ?? defaultColoringStyles;
-    const cursorLineStyles = parseAnimatedTyperStyleProp(contributorIndex, props.cursorLineStyles) ?? defaultColoringStyles;
+    const cursorBlockStyles = parseAnimatedTyperStyleProp(contributorIndex, props.cursorBoxStyles ?? defaultColoringStyles);
+    const cursorLineStyles = parseAnimatedTyperStyleProp(contributorIndex, props.cursorLineStyles ?? defaultColoringStyles);
     
     return (
         <div style={cursorLineStyles} className={classNames(

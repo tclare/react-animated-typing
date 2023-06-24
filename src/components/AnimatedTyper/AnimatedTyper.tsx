@@ -17,7 +17,7 @@ export interface AnimatedTyperProps {
 }
 
 export type StyleIndexFunction = (i: number) => React.CSSProperties | undefined;
-export type AnimatedTyperStyle = React.CSSProperties | StyleIndexFunction;
+export type AnimatedTyperStyle = React.CSSProperties | React.CSSProperties[] | StyleIndexFunction;
 
 const defaultTextStyles: React.CSSProperties = {
   color: "black",
