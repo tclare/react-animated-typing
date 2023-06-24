@@ -26,6 +26,7 @@ React application. This component accepts the following props:
 | spelloutDuration | `number` | Time (in milliseconds) to spell out (and also backspace through) each phrase in `text`. | no | `1000`
 | waitingDuration | `number` | Time (in milliseconds) to wait, from when a phrase was finished being spelled out, to when it will start being erased. | no | `2000`
 | blinkDuration | `number` | Time (in milliseconds) to wait between cursor blinks. | no | `500`
+| containerStyles | `React.CSSProperties` | Custom styles to apply to the entire Animated Typer container. Useful for things that cannot be applied to inline `span` containers, like spacing. | no | `{}`
 | textStyles | `AnimatedTyperStyle`* | Custom styles to apply to the messages being typed out. | no | `{}`
 | cursorLineStyles | `AnimatedTyperStyle`* | Custom styles to apply to the vertical line portion of the cursor. | no | `{}`
 | cursorBoxStyles | `AnimatedTyperStyle`* | Custom styles to apply to the horizontal box portion of the cursor, usually containing the name of the current "editing user." | no | `{}`
