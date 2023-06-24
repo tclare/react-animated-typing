@@ -1,6 +1,7 @@
 import { FunctionComponent, useEffect, useState, useContext } from "react"
-import { AnimatedTyperProps, TypingContext } from "../App"
-import { parseAnimatedTyperStyleProp } from "../utils";
+import { AnimatedTyperProps } from "../AnimatedTyper/AnimatedTyper";
+import { parseAnimatedTyperStyleProp } from "../../utils";
+import { TypingContext } from "../../context";
 
 export const AnimatedTyperText: FunctionComponent<AnimatedTyperProps> = (props) => {
 

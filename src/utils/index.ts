@@ -1,4 +1,4 @@
-import { AnimatedTyperStyle } from "../App";
+import { AnimatedTyperStyle } from "../components/AnimatedTyper";
 
 export function parseAnimatedTyperStyleProp(
     idx: number,

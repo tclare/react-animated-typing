@@ -1,7 +1,10 @@
 import React, { FunctionComponent, createContext, useState } from 'react';
-import { AnimatedTyperText } from './components/AnimatedTyperText';
-import { AnimatedTyperCursor } from './components/AnimatedTyperCursor';
-import "./App.css";
+import { AnimatedTyperText } from '../AnimatedTyperText';
+import { AnimatedTyperCursor } from '../AnimatedTyperCursor';
+import { TypingContext } from '../../context';
+import './AnimatedTyper.css';
+import { parseAnimatedTyperStyleProp } from '../../utils';
+
 export interface AnimatedTyperProps {
   text: string[];
   contributors?: string[];
@@ -9,37 +12,21 @@ export interface AnimatedTyperProps {
   spelloutDuration?: number;
   waitingDuration?: number;
   blinkDuration?: number;
+  containerStyles?: React.CSSProperties;
   textStyles?: AnimatedTyperStyle;
   cursorLineStyles?: AnimatedTyperStyle;
   cursorBoxStyles?: AnimatedTyperStyle;
 }
 
 export type StyleIndexFunction = (i: number) => React.CSSProperties | undefined;
-export type AnimatedTyperStyle = React.CSSProperties | StyleIndexFunction;
+export type AnimatedTyperStyle = React.CSSProperties | React.CSSProperties[] | StyleIndexFunction;
 
-const defaultTextStyles: React.CSSProperties = {
+const defaultContainerStyle: React.CSSProperties = {
   color: "black",
   fontFamily: "Georgia",
   fontWeight: "bold",
   fontSize: 48
 };
-
-const isSpellingDefaults = {
-  isSpelling: true,
-  setIsSpelling: (s: boolean) => {}
-};
-
-const spelloutIndexDefaults = {
-  spelloutIndex: 0,
-  setSpelloutIndex: (n: number) => {}
-}
-
-const defaultContextState = {
-  isSpellingState: isSpellingDefaults,
-  spelloutIndexState: spelloutIndexDefaults
-};
-
-export const TypingContext = createContext(defaultContextState);
 
 export const AnimatedTyper: FunctionComponent<AnimatedTyperProps> = (props) => {
 
@@ -52,7 +39,7 @@ export const AnimatedTyper: FunctionComponent<AnimatedTyperProps> = (props) => {
 
   return (
     <TypingContext.Provider value={contextValue}>
-      <div className="animated-typer__container" style={defaultTextStyles}>
+      <div className="animated-typer__container" style={{...defaultContainerStyle, ...props.containerStyles}}>
         <AnimatedTyperText {...props }/>
         <AnimatedTyperCursor {...props}/>
       </div>
