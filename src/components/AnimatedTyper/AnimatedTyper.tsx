@@ -2,6 +2,7 @@ import React, { FunctionComponent, createContext, useState } from 'react';
 import { AnimatedTyperText } from '../AnimatedTyperText';
 import { AnimatedTyperCursor } from '../AnimatedTyperCursor';
 import { TypingContext } from '../../context';
+import './AnimatedTyper.css';
 
 export interface AnimatedTyperProps {
   text: string[];
